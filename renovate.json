@@ -6,8 +6,18 @@
   "packageRules": [
     {
       "description": "Automerge pocket-id updates",
-      "matchDepNames": "pocket-id/pocket-id",
+      "matchPackageNames": "ghcr.io/pocket-id/pocket-id",
       "automerge": true
+    }
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "datasourceTemplate": "docker",
+      "fileMatch": ["(^|/)Chart\\.yaml$"],
+      "matchStrings": [
+        "#\\s?renovate: image=(?<depName>.*?)\\s?appVersion:\\s?\\\"?(?<currentValue>[\\w+\\.\\-]*)\""
+      ]
     }
   ]
 }
