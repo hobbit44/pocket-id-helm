@@ -33,7 +33,7 @@ jobs:
         id: version
         uses: mikefarah/yq@master
         with:
-          cmd: yq '.image.tag' values.yaml
+          cmd: yq -r '.appVersion | sub("^v"; "")' Chart.yaml
       
       - name: Reuse a variable obtained in another step
         run: echo ${{ steps.get_username.outputs.result }}
