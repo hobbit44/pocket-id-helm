@@ -11,7 +11,6 @@ permissions:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
-  VERSION: ${{ github.event.release.name }}
 
 jobs:
   build:
@@ -22,8 +21,6 @@ jobs:
     steps:
       - name: checkout code
         uses: actions/checkout@v3
-        with:
-          ref: ${{ github.release.tag_name }}
 
       - name: "Login to GitHub Container Registry"
         uses: docker/login-action@v3
@@ -31,9 +28,19 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
-
+      
+      - name: Get Version
+        id: version
+        uses: mikefarah/yq@master
+        with:
+          cmd: yq '.image.tag' values.yaml
+      
+      - name: Reuse a variable obtained in another step
+        run: echo ${{ steps.get_username.outputs.result }}
+      
       - name: Push Helm chart
+        env:
+          VERSION: ${{ steps.version.outputs.result }}
         run: |
-          version=$(echo "${{ env.VERSION }}" | sed 's/^v//g')
-          helm package chart --version ${version} --app-version ${{ env.VERSION }} --dependency-update
-          helm push pocket-id-${version}.tgz oci://${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          helm package . --version $VERSION --app-version $VERSION --dependency-update
+          helm push pocket-id-${VERSION}.tgz oci://${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
