@@ -8,8 +8,8 @@ image:
   repository: ghcr.io/pocket-id/pocket-id
   # -- The pull policy for images
   pullPolicy: IfNotPresent
-  # -- Overrides the image tag whose default is the chart appVersion.
-  tag: 0.42.0
+  # -- Overrides the image tag whose default is the chart version.
+  tag: ""
 
 # -- Pocket-id configuration variables
 # For more information see: https://pocket-id.org/docs/configuration/environment-variables

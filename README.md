@@ -23,7 +23,7 @@ Pocket-id Helm chart for Kubernetes
 | fullnameOverride | string | `""` | The full resource name override |
 | image.pullPolicy | string | `"IfNotPresent"` | The pull policy for images |
 | image.repository | string | `"ghcr.io/pocket-id/pocket-id"` | The container image to run |
-| image.tag | string | `""` | Overrides the image tag whose default is the chart appVersion. |
+| image.tag | string | `""` | Overrides the image tag whose default is the chart version. |
 | imagePullSecrets | list | `[]` | This is for the secretes for pulling an image from a private repository more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/ |
 | ingress.annotations | object | `{}` | Annotations for the ingress |
 | ingress.className | string | `""` |  |
@@ -34,7 +34,7 @@ Pocket-id Helm chart for Kubernetes
 | ingress.tls | list | `[]` | Adds tls to the ingress |
 | livenessProbe.httpGet.path | string | `"/health"` | Healthcheck endpoint |
 | livenessProbe.httpGet.port | string | `"http"` |  |
-| livenessProbe.initialDelaySeconds | int | `30` |  |
+| livenessProbe.initialDelaySeconds | int | `60` |  |
 | nameOverride | string | `""` | The resource name suffix |
 | nodeSelector | object | `{}` |  |
 | persistence.accessMode | string | `"ReadWriteOnce"` |  |
@@ -48,7 +48,7 @@ Pocket-id Helm chart for Kubernetes
 | podSecurityContext | object | `{}` |  |
 | readinessProbe.httpGet.path | string | `"/health"` | Healthcheck endpoint |
 | readinessProbe.httpGet.port | string | `"http"` |  |
-| readinessProbe.initialDelaySeconds | int | `30` |  |
+| readinessProbe.initialDelaySeconds | int | `60` |  |
 | resources | object | `{}` | Specifiy resources for the pod |
 | securityContext | object | `{}` |  |
 | service.port | int | `80` |  |
