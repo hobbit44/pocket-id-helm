@@ -1,0 +1,39 @@
+name: Release
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  packages: write
+  contents: read
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+  VERSION: ${{ github.event.release.name }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.release.tag_name }}
+
+      - name: "Login to GitHub Container Registry"
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Push Helm chart
+        run: |
+          version=$(echo "${{ env.VERSION }}" | sed 's/^v//g')
+          helm package chart --version ${version} --app-version ${{ env.VERSION }} --dependency-update
+          helm push pocket-id-${version}.tgz oci://${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}

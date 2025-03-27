@@ -1,0 +1,19 @@
+name: PR Check
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+    steps:
+      - uses: actions/checkout@v3
+      - name: Lint
+        run: helm lint chart
+      - name: Run helm-docs
+        uses: losisin/helm-docs-github-action@v1
+        with:
+          fail-on-diff: true
