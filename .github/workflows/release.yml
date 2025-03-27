@@ -43,4 +43,4 @@ jobs:
           VERSION: ${{ steps.version.outputs.result }}
         run: |
           helm package . --version $VERSION --app-version $VERSION --dependency-update
-          helm push pocket-id-${version}.tgz oci://${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          helm push pocket-id-${VERSION}.tgz oci://${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
