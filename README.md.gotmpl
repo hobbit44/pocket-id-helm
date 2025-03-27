@@ -1,7 +1,12 @@
 {{ define "chart.versionBadge" -}}
 {{- $releaseEndpoint := urlquery "https://api.github.com/repos/pocket-id/pocket-id/releases/latest" }}
 {{- $releaseNameQuery := urlquery "$.name" }}
-![Version](https://img.shields.io/badge/dynamic/json?url={{ $releaseEndpoint }}&query={{ $releaseNameQuery }}&label=Version)
+![Version](https://img.shields.io/badge/dynamic/json?url={{ $releaseEndpoint }}&query={{ $releaseNameQuery }}&label=Version) 
+{{- end }}
+{{ define "chart.appVersionBadge" -}}
+{{- $releaseEndpoint := urlquery "https://api.github.com/repos/pocket-id/pocket-id/releases/latest" }}
+{{- $releaseNameQuery := urlquery "$.name" }}
+![AppVersion](https://img.shields.io/badge/dynamic/json?url={{ $releaseEndpoint }}&query={{ $releaseNameQuery }}&label=Version) 
 {{- end }}
 
 {{ template "chart.header" . }}
