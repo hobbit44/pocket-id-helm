@@ -9,7 +9,7 @@ image:
   # -- The pull policy for images
   pullPolicy: IfNotPresent
   # -- Overrides the image tag whose default is the chart version.
-  tag: ""
+  tag: "0.42.0"
 
 # -- Pocket-id configuration variables
 # For more information see: https://pocket-id.org/docs/configuration/environment-variables
