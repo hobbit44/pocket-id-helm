@@ -5,7 +5,8 @@ home: https://github.com/hobbit44/pocket-id-helm
 icon: https://github.com/user-attachments/assets/4ceb2708-9f29-4694-b797-be833efce17d
 type: application
 sources:
-  - https://github.com/hobbit44/pocket-id-helm/tree/main/
+  - https://github.com/pocket-id/pocket-id
+  - https://github.com/hobbit44/pocket-id-helm
 # renovate: image=ghcr.io/pocket-id/pocket-id
 appVersion: "v0.44.0"
 version: 0.0.0

@@ -7,11 +7,25 @@
 
 Pocket-id Helm chart for Kubernetes
 
-**Homepage:** <https://github.com/hobbit44/pocket-id-helm>
+### Installing the Chart
+To install the chart with the release name my-release:
+
+```
+helm install my-release oci://ghcr.io/hobbit44/pocket-id-helm/pocket-id
+```
+
+### Uninstalling the Chart
+To uninstall/delete the my-release deployment:
+
+```
+helm delete my-release
+```
+The command removes all the Kubernetes components associated with the chart and deletes the release.
 
 ## Source Code
 
-* <https://github.com/hobbit44/pocket-id-helm/tree/main/>
+* <https://github.com/pocket-id/pocket-id>
+* <https://github.com/hobbit44/pocket-id-helm>
 
 ## Values
 

@@ -16,9 +16,21 @@
 
 {{ template "chart.description" . }}
 
-{{ template "chart.homepageLine" . }}
 
-{{ template "chart.maintainersSection" . }}
+### Installing the Chart
+To install the chart with the release name my-release:
+
+```
+helm install my-release oci://ghcr.io/hobbit44/pocket-id-helm/pocket-id
+```
+
+### Uninstalling the Chart
+To uninstall/delete the my-release deployment:
+
+```
+helm delete my-release
+```
+The command removes all the Kubernetes components associated with the chart and deletes the release.
 
 {{ template "chart.sourcesSection" . }}
 
