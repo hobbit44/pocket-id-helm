@@ -35,9 +35,6 @@ jobs:
         with:
           cmd: yq -r '.appVersion | sub("^v"; "")' Chart.yaml
       
-      - name: Reuse a variable obtained in another step
-        run: echo ${{ steps.get_username.outputs.result }}
-      
       - name: Push Helm chart
         env:
           VERSION: ${{ steps.version.outputs.result }}
