@@ -5,10 +5,10 @@ metadata:
   name: {{ include "pocket-id.fullname" . }}-config
 data:
   {{- if .Values.ingress.enabled -}}
-  {{- if not .Values.config.publicAppUrl  }}
-  {{- required "publicAppUrl needs to be set if using an ingress" .Values.config.publicAppUrl }}
-  {{- else if and .Values.ingress.tls (not (hasPrefix "https" .Values.config.publicAppUrl)) }}
-  {{- fail "value for .Values.config.publicAppUrl needs to start with 'https://' when using tls" }}
+  {{- if not .Values.config.appUrl  }}
+  {{- required "appUrl needs to be set if using an ingress" .Values.config.appUrl }}
+  {{- else if and .Values.ingress.tls (not (hasPrefix "https" .Values.config.appUrl)) }}
+  {{- fail "value for .Values.config.appUrl needs to start with 'https://' when using tls" }}
   {{- end }}
   TRUST_PROXY: "true"
   {{- end }}
