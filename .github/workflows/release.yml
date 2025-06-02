@@ -28,13 +28,13 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      
+
       - name: Get Version
         id: version
         uses: mikefarah/yq@master
         with:
-          cmd: yq -r '.appVersion | sub("^v"; "")' Chart.yaml
-      
+          cmd: yq -r .version Chart.yaml
+
       - name: Push Helm chart
         env:
           VERSION: ${{ steps.version.outputs.result }}

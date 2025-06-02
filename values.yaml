@@ -15,20 +15,15 @@ image:
 # For more information see: https://pocket-id.org/docs/configuration/environment-variables
 config:
   {}
-  # publicAppUrl: ""
+  # appUrl: ""
   # trustProxy: ""
   # maxmindLicenseKey: ""
   # puid: ""
   # dbProvider: ""
-  # sqliteDbPath: ""
-  # postgresConnectionString: ""
+  # dbConnectionString: ""
   # uploadPath: ""
-  # internalBackendUrl: ""
   # geoliteDbPath: ""
-  # caddyPort: ""
-  # caddyDisabled: ""
   # port: ""
-  # backendPort: ""
   # host: ""
 
 # -- Name of an existing config map containing any environment variables
@@ -69,7 +64,7 @@ securityContext:
 
 service:
   type: ClusterIP
-  port: 80
+  port: 1411
 
 ingress:
   # -- Enables an ingress for the application
