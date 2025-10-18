@@ -4,6 +4,8 @@ metadata:
   name: {{ include "pocket-id.fullname" . }}
   labels:
     {{- include "pocket-id.labels" . | nindent 4 }}
+  annotations:
+    {{- toYaml .Values.service.annotations | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
   ports:
