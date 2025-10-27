@@ -6,7 +6,7 @@ icon: https://github.com/user-attachments/assets/4ceb2708-9f29-4694-b797-be833ef
 type: application
 sources:
   - https://github.com/pocket-id/pocket-id
-  - https://github.com/hobbit44/pocket-id-helm
+  - https://github.com/jgaudette/pocket-id-helm
 # renovate: image=ghcr.io/pocket-id/pocket-id
-appVersion: "v0.49.0"
+appVersion: "v1.14.0"
 version: 0.0.0
