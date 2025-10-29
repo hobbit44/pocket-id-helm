@@ -8,5 +8,5 @@ sources:
   - https://github.com/pocket-id/pocket-id
   - https://github.com/hobbit44/pocket-id-helm
 # renovate: image=ghcr.io/pocket-id/pocket-id
-appVersion: "v1.14.2"
+appVersion: "v1.14.3"
 version: 0.0.0
