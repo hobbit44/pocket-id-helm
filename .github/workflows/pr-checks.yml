@@ -14,6 +14,6 @@ jobs:
       - name: Lint
         run: helm lint
       - name: Run helm-docs
-        uses: losisin/helm-docs-github-action@v1
+        uses: losisin/helm-docs-github-action@v2
         with:
           fail-on-diff: true
